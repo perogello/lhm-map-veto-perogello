@@ -24,20 +24,12 @@ npm run pack
 ## Обновление изображений карт (из официальных источников)
 В репозитории есть простой скрипт.
 
-1) Добавьте файлы из папки `scripts/` в свой проект.  
-2) Запустите:
+Запустите:
 ```bash
-node scripts/get-maps.mjs
+npm run get-maps   # скачает /public/maps/de_*.png с Valve Dev Wiki
 ```
-Скрипт скачает актуальные превью карт в `public/maps/` (имена `de_<map>.png|jpg`).  
+HUD уже умеет подхватывать .png (сделал fallback jpg → png).
 Если какой‑то карты нет — просто положите её изображение вручную в `public/maps/`.
-
-> Можно также добавить npm‑скрипт:
-> ```jsonc
-> // package.json
-> "scripts": { "get-maps": "node scripts/get-maps.mjs" }
-> ```
-> и запускать `npm run get-maps`.
 
 ## Где лежат файлы
 ```
@@ -55,13 +47,6 @@ src/
       └─ vetostrip.scss
 ```
 
-## Советы по OBS / LHM
-- Сцену делайте **1920×1080**.
-- Если лента внезапно «уезжает», проверьте, что нет внешних паддингов у контейнера и включён глобальный сброс:
-  ```css
-  html, body, #root { margin:0; padding:0; width:100vw; height:100vh; overflow:hidden; }
-  * { box-sizing: border-box; }
-  ```
 
 ## Лицензия
 MIT (или укажите свою).
